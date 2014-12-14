@@ -16,6 +16,7 @@ RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 0xcbcb082a
 #change bind address to 0.0.0.0
 RUN sed -i -r 's/bind-address.*$/bind-address = 0.0.0.0/' /etc/mysql/my.cnf
 
+ADD my.cnf /etc/mysql/my.cnf
 ADD create_mariadb_admin_user.sh /create_mariadb_admin_user.sh
 ADD run.sh /run.sh
 RUN chmod 775 /*.sh
